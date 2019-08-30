@@ -19,7 +19,7 @@ options = {
   map_builder = MAP_BUILDER,
   trajectory_builder = TRAJECTORY_BUILDER,
   map_frame = "map",
-  tracking_frame = "imu_link",
+  tracking_frame = "base_link",
   published_frame = "odom",
   odom_frame = "odom",
   provide_odom_frame = false,
@@ -29,7 +29,7 @@ options = {
   use_landmarks = false,
   num_laser_scans = 2,
   num_multi_echo_laser_scans = 0,
-  num_subdivisions_per_laser_scan = 10,
+  num_subdivisions_per_laser_scan = 1,
   num_point_clouds = 0,
   lookup_transform_timeout_sec = 1.,
   submap_publish_period_sec = 0.3,
@@ -48,10 +48,12 @@ TRAJECTORY_BUILDER_2D.num_accumulated_range_data = 1
 
 TRAJECTORY_BUILDER_2D.min_range = 0.3
 TRAJECTORY_BUILDER_2D.missing_data_ray_length = 2.
-TRAJECTORY_BUILDER_2D.use_imu_data = true
+TRAJECTORY_BUILDER_2D.use_imu_data = false
 -- TRAJECTORY_BUILDER_2D.use_online_correlative_scan_matching = true
 -- TRAJECTORY_BUILDER_2D.real_time_correlative_scan_matcher.linear_search_window = 0.15
 -- TRAJECTORY_BUILDER_2D.real_time_correlative_scan_matcher.angular_search_window = math.rad(35.)
+POSE_GRAPH.constraint_builder.fast_correlative_scan_matcher.angular_search_window = math.rad(15.)
+POSE_GRAPH.constraint_builder.fast_correlative_scan_matcher.linear_search_window = 3.
 
 POSE_GRAPH.optimization_problem.huber_scale = 1e2
 
