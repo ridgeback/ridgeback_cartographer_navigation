@@ -12,25 +12,21 @@ To adapt this demo to your own Ridgeback, you may need to clone the [ridgeback_c
 
      `git clone http://github.com/ridgeback/ridgeback_cartographer_navigation.git`
 
-  2. Run the following script to create a workspace and install the relevant packages. This script will install the packages required to use Cartographer as well as the [ridgeback_desktop](https://github.com/ridgeback/ridgeback_desktop), [ridgeback](https://github.com/ridgeback/ridgeback), and [ridgeback_simulator](https://github.com/ridgeback/ridgeback_simulator) packages:
+  2. Install the following ROS packages:
 
-     `source $(pwd)/ridgeback_cartographer_navigation/ridgeback_cartographer_install.sh`
+     `sudo apt-get install ros-melodic-ridgeback-* ros-melodic-cartographer-ros`
 
-  3. Open three new terminal/tabs, source the workspace for each terminal/tab:
+  3. Build the workspace and open two new terminal/tabs, source the workspace for each terminal/tab:
 
-     `source install_isolated/setup.bash`
+     `source devel/setup.bash`
 
-      1. Launch the Gazebo simulation with the *dual_sick_lasers* config:
+      - Launch the Gazebo simulation with the *dual_sick_lasers* config:
 
-         `roslaunch ridgeback_gazebo ridgeback_world.launch config:=dual_sick_lasers`
+        `roslaunch ridgeback_gazebo ridgeback_world.launch config:=dual_sick_lasers`
 
-      2. Launch RViz to visualize the robot:
+      - Launch the Cartographer node to begin SLAM (NOTE: This also launches RViz to visualize the robot):
 
-         `roslaunch ridgeback_viz view_robot.launch config:=cartographer`
-
-      3. Launch the Cartographer node to begin SLAM:
-
-         `roslaunch ridgeback_cartographer_navigation cartographer_demo.launch`
+        `roslaunch ridgeback_cartographer_navigation cartographer_demo.launch`
 
   4. In the Rviz visualizer, make sure the visualizers in the Navigation group are enabled.
 
