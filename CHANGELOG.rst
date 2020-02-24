@@ -2,8 +2,8 @@
 Changelog for package ridgeback_cartographer_navigation
 ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
 
-Forthcoming
------------
+0.0.1 (2020-02-24)
+------------------
 * Added ridgeback_navigation as run dep.
 * Updated maintainer.
 * Removed rviz to use ridgeback_viz.
